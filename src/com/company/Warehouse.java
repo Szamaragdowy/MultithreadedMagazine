@@ -20,7 +20,7 @@ class Warehouse {
         for (Unit x : listOfProducts) {
             if (Objects.equals(x.getName(), product)) {
                 if ((x.getVolume() + quantity) > maxCapacity) {
-                    System.err.println("not enough space to store  " + product + " i will try again with new Capacity");
+                    System.err.println("not enough space to store  " + product);
                     return 0;
                 } else {
                     x.add(quantity);
@@ -30,11 +30,11 @@ class Warehouse {
             }
         }
         if (listOfProducts.size() >= maxTypeCapacity) {
-            System.err.println("not enough space to store new kind of product(" + product + ")");
+            System.err.println("not enough space to store new kind of product");
             return 0;
         } else {
             if (quantity > maxCapacity) {
-                System.err.println("Delivery is too big to store with actually maxCapacity, i will try again with new Capacity ");
+                System.err.println("Delivery is too big to be stored with current maxCapacity");
                 return 0;
             } else {
                 listOfProducts.add(new Unit(product, quantity));
